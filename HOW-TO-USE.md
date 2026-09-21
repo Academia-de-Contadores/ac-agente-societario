@@ -13,7 +13,7 @@ Instale apenas o pacote distribuível e invoque `$ac-societario`. O checkout
 inteiro não é uma pasta de skill: avaliações, governança, relatórios, testes e a
 captura histórica contaminada não são dependências do runtime.
 
-## Instalação seletiva da candidata
+## Instalação seletiva da release validada
 
 Crie no diretório de skills do Codex uma pasta `ac-societario`. Copie arquivos
 reais, sem symlinks, preservando estes caminhos:
@@ -33,9 +33,11 @@ Não copie os arquivos `01` a `99` de `knowledge/original/`,
 
 Valide o destino com `quick_validate.py` da skill `skill-creator` e confira que
 o pacote contém exatamente os dez arquivos de Knowledge declarados. A instalação
-e o forward test independentes estão registrados em `evaluations/parity/`. Esta
-versão permanece `candidate` até a revisão final que autorizar a promoção do
-lifecycle para `validated`.
+e o forward test independentes estão registrados em `evaluations/parity/`. A
+release `0.2.0` tem lifecycle `validated`: passou em 6/6 casos locais, 6/6 casos
+online, instalação byte a byte e revisão final sem achados. Instale a partir de
+`main` em um commit que contenha esta release ou de uma tag `v0.2.0` que resolva
+para o mesmo conteúdo; não use branches transitórias como origem operacional.
 
 ## Uso real
 

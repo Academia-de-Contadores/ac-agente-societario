@@ -1,6 +1,6 @@
 # Validação da instalação seletiva — 2026-09-21
 
-- Base: `c4642951cdcf6ed80577991bf1a3744fbc31f4ae`.
+- Base da preparação da release: `1132fa3a257e6301bde5782b82c68ff577f5bba3`.
 - Origem: worktree `societario-skill-ready`.
 - Destino: `/Users/levy/.codex/skills/ac-societario`.
 - Congelamento dos casos: `2026-09-21T06:48:09Z`.
@@ -32,10 +32,11 @@ verificação final deste relatório registra o hash pós-sincronização.
 
 ## Verificação final pós-sincronização
 
-`agent.yaml` foi sincronizado para o destino depois de registrar as cinco
-evidências. Os dois `quick_validate.py`, o validador específico, o validador do
+`agent.yaml` com versão `0.2.0` e lifecycle `validated` foi sincronizado para o
+destino. Os dois `quick_validate.py`, o validador específico, o validador do
 repositório, a suíte de testes, a igualdade byte a byte 22/22 e
 `git diff --check` passaram. O inventário final instalado permaneceu com 22
 arquivos e passou a ter SHA-256
-`4171cbee05209a5b7a201f702dc8b1f7d8e9cdb822918b4b6e4c0eec7a5c5967`.
-Symlinks e `.gitkeep` continuam em zero.
+`b481886fdb5efa8180f4a45156128e31e4c5561688950832c139291f7b0349b1`.
+Os dez arquivos de Knowledge continuam presentes; symlinks e `.gitkeep`
+continuam em zero.

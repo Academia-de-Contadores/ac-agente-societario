@@ -1,6 +1,6 @@
 # Forward test local independente — Societário — 2026-09-21
 
-Base da candidata: `c4642951cdcf6ed80577991bf1a3744fbc31f4ae`.
+Base avaliada: `c4642951cdcf6ed80577991bf1a3744fbc31f4ae`.
 Executor: subagente limpo
 `/root/societario_task3_validator/societario_local_forward`, sem delegação.
 Skill usada: `/Users/levy/.codex/skills/ac-societario`.

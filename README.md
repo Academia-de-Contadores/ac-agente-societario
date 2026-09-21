@@ -6,7 +6,7 @@
 | Skill | `$ac-societario` |
 | GPT representado | [`g-6a725963258081919e7c1824531b1b6d`](https://chatgpt.com/gpts/editor/g-6a725963258081919e7c1824531b1b6d) |
 | Versão | `0.2.0` |
-| Lifecycle | `candidate` |
+| Lifecycle | `validated` |
 
 ## Propósito
 
@@ -15,8 +15,8 @@ revisáveis e comunicação com clientes. A skill entrega orientação e materia
 trabalho mesmo quando ainda faltam dados, sem transformar hipótese em conclusão
 jurídica nem executar ações externas sem aprovação.
 
-Este repositório é a fonte de verdade do agente existente e contém a candidata
-instalável `$ac-societario`. O GPT online permanece como baseline preservado. A
+Este repositório é a fonte de verdade do agente existente e contém a skill
+validada `$ac-societario`. O GPT online permanece como baseline preservado. A
 skill é deliberadamente mais acionável: pode produzir checklist, matriz de
 responsáveis, mensagem e minuta de trabalho revisável, mas não inventa fonte,
 exigência, prazo, protocolo, registro ou decisão final.
@@ -30,8 +30,15 @@ captura `knowledge/live-2026-08-22/` e
 sinais de contaminação de DP. Eles não devem ser copiados para a instalação.
 
 Essa baseline é provisória: os dez nomes foram reconfirmados no editor em
-2026-09-21, mas os bytes atuais não puderam ser baixados. A candidata não afirma
+2026-09-21, mas os bytes atuais não puderam ser baixados. A release não afirma
 paridade binária com o online atual.
+
+A release `0.2.0` passou nos seis casos locais e nos seis casos do GPT online.
+Na rubrica de 12 pontos, P1, P2, P3, P5 e P6 obtiveram 12/12 e P4 obteve
+11/12. A instalação seletiva mantém 22 arquivos regulares, dez arquivos de
+Knowledge e nenhum symlink ou `.gitkeep`. A revisão final registrou zero achados
+Critical, Important ou Minor. O relatório durável está em
+`evaluations/parity/release-validation-2026-09-21.md`.
 
 ## Invocação
 

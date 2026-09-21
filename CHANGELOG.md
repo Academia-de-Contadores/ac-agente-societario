@@ -2,9 +2,9 @@
 
 Todas as mudanças relevantes deste agente serão registradas aqui.
 
-## Unreleased
+## 0.2.0 — 2026-09-21
 
-- Empacota a versão candidata `0.2.0` de `$ac-societario` para Codex.
+- Publica a release validada `0.2.0` de `$ac-societario` para Codex.
 - Preserva o GPT como baseline e torna a execução local mais acionável.
 - Limita o runtime aos nove anexos da captura de 2026-08-22 e ao índice
   societário, sem incluir os originais históricos contaminados por DP.
@@ -19,7 +19,10 @@ Todas as mudanças relevantes deste agente serão registradas aqui.
 - Reconcilia o GPT online em 2026-09-21, registra a mudança de modelo
   recomendado e separa as capturas de Knowledge de 2026-08-07 e 2026-08-22.
 - Define a captura binária de 2026-08-22 como baseline documental provisório
-  para a futura skill, sem declarar paridade binária com o online atual.
+  da skill, sem declarar paridade binária com o online atual.
+- Registra PASS local 6/6 e online 6/6; P1, P2, P3, P5 e P6 com 12/12,
+  P4 com 11/12; instalação seletiva 22/10/0/0 e revisão final com
+  0 Critical, 0 Important e 0 Minor.
 - Adiciona manual operacional, referência completa da estrutura e guia de contribuição expandido.
 - Torna os documentos operacionais obrigatórios na validação.
 

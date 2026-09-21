@@ -1,8 +1,8 @@
-# Baseline documental da futura skill
+# Baseline documental da skill
 
 - **Data:** 2026-09-21
 - **Status:** provisório e reversível
-- **Decisão:** construir a futura skill sobre os nove arquivos de
+- **Decisão:** manter a release validada sobre os nove arquivos de
   `knowledge/live-2026-08-22/` e o índice
   `knowledge/original/00-INDICE-SOCIETARIO.md`.
 

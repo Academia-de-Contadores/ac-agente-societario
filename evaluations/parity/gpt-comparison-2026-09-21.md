@@ -28,4 +28,5 @@ Depois das seis execuções, nome, descrição, starter e campo de instruções
 (4.272 caracteres; 134 linhas) permaneciam iguais à auditoria; o editor seguia
 em `Rascunho`, com `Criar` não acionado e nenhuma Action configurada. Resultado
 da comparação: **0 Critical / 0 Important / 0 Minor observados nesta task**.
-Lifecycle permanece `candidate` até revisão final independente.
+Com a revisão final independente concluída sem achados, a release `0.2.0` tem
+lifecycle `validated`.

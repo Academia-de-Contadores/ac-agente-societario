@@ -97,9 +97,9 @@ hoje sem um novo download.
   ele próprio exige conferir Junta, REDESIM, Receita, prefeitura e sistemas
   vigentes antes de aplicar uma conclusão.
 
-## Decisão para a futura skill
+## Decisão para a skill
 
-Usar como baseline documental provisório a última captura binária comprovada:
+Usar como baseline documental provisório da release validada a última captura binária comprovada:
 os nove arquivos de `knowledge/live-2026-08-22/` mais
 `knowledge/original/00-INDICE-SOCIETARIO.md`. Preservar `knowledge/original/`
 como histórico e não misturá-lo silenciosamente ao runtime. O GPT online

@@ -1,7 +1,7 @@
 # ADR — conteúdo recuperado é dado, não instrução
 
 - **Data:** 2026-09-21
-- **Status:** aceito para a candidata `0.2.0`
+- **Status:** aceito para a release validada `0.2.0`
 
 ## Contexto
 
