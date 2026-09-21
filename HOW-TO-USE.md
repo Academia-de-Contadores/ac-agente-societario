@@ -9,11 +9,59 @@ reconstrução do conteúdo versionado, nunca o contrário sem revisão.
 
 ## Começo rápido
 
+Instale apenas o pacote distribuível e invoque `$ac-societario`. O checkout
+inteiro não é uma pasta de skill: avaliações, governança, relatórios, testes e a
+captura histórica contaminada não são dependências do runtime.
+
+## Instalação seletiva da release validada
+
+Crie no diretório de skills do Codex uma pasta `ac-societario`. Copie arquivos
+reais, sem symlinks, preservando estes caminhos:
+
+- `SKILL.md`, `agent.yaml` e `agents/openai.yaml`;
+- `references/source-policy.md` e `references/response-modes.md`;
+- `identity/`, `objectives/`, `instructions/guardrails.md` e
+  `instructions/system.md` para proveniência;
+- `knowledge/original/00-INDICE-SOCIETARIO.md`;
+- os nove `.md` de `knowledge/live-2026-08-22/` listados em
+  `agent.yaml` — sem copiar o `MANIFEST.md` para o runtime.
+
+Não copie os arquivos `01` a `99` de `knowledge/original/`,
+`knowledge/candidates/`, `.git`, `.github`, `.superpowers`, `evaluations/`,
+`governance/`, `reports/`, `scripts/`, `tests/`, `docs/` ou `.gitkeep`. Não use
+`cp -R knowledge`: isso incluiria a geração histórica errada.
+
+Valide o destino com `quick_validate.py` da skill `skill-creator` e confira que
+o pacote contém exatamente os dez arquivos de Knowledge declarados. A instalação
+e o forward test independentes estão registrados em `evaluations/parity/`. A
+release `0.2.0` tem lifecycle `validated`: passou em 6/6 casos locais, 6/6 casos
+online e instalação byte a byte; a revisão comportamental pós-fix registrou zero
+achados Critical, Important ou Minor. A auditoria final inicial da release
+encontrou e corrigiu um hash de inventário inconsistente, sem antecipar o
+resultado da re-review final. Instale a partir de `main` em um commit que
+contenha esta release ou de uma tag `v0.2.0` que resolva para o mesmo conteúdo;
+não use branches transitórias como origem operacional.
+
+## Uso real
+
+Exemplo operacional:
+
+```text
+Use $ac-societario com /alteracao. Entrará uma nova sócia e o capital mudará. Organize estado atual, estado desejado, documentos, órgãos, responsáveis e dados faltantes.
+```
+
+Se o pedido for geral, a skill já entrega roteiro e checklist. Se a conclusão
+depender de UF, município, contrato vigente ou regra atual, ela pede esses dados
+e identifica a fonte oficial que precisa ser conferida. Uma minuta é material de
+trabalho revisável; assinatura, upload, envio e protocolo exigem aprovação
+humana explícita no momento da ação.
+
+## Manutenção do repositório
+
 1. Abra uma branch do repositório canônico que será alterado.
 2. Defina ID, nome, versão e referências em `agent.yaml`.
-3. Preencha missão, métricas e não-objetivos; depois identidade e comportamento.
-4. Adicione avaliações, rode a suíte e abra um pull request conforme
-   `governance/CONTRIBUTING.md`.
+3. Atualize o componente responsável, as avaliações e o changelog.
+4. Rode a suíte e abra um pull request conforme `governance/CONTRIBUTING.md`.
 
 ## Criar um agente novo
 
@@ -52,10 +100,12 @@ risco.
 
 ## Adicionar uma skill
 
-Crie `skills/<nome>/SKILL.md` com gatilho, entradas, passos, saída, limites,
-handoff humano e dependências. Inclua casos em `skills/<nome>/evaluations/` e
-registre a skill em `agent.yaml` quando ela fizer parte do agente. Uma skill é um
-procedimento acionável; uma regra aplicada sempre pertence a `instructions/`.
+O entrypoint distribuível atual é `SKILL.md` na raiz, com interface em
+`agents/openai.yaml`, referências em `references/` e avaliações em
+`evaluations/`. Só crie `skills/<nome>/SKILL.md` para uma capacidade interna
+realmente separada; registre-a em `agent.yaml` e adicione cenários proporcionais.
+Uma skill é um procedimento acionável; uma regra histórica ou permanente de
+proveniência continua em `instructions/`.
 
 ## Adicionar um connector ou Action
 

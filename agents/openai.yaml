@@ -1,0 +1,6 @@
+interface:
+  display_name: "Societário"
+  short_description: "Abertura, alterações, baixa e minutas revisáveis"
+  default_prompt: "Use $ac-societario para organizar este caso societário, entregar o que já for possível e listar as validações necessárias."
+policy:
+  allow_implicit_invocation: true

@@ -2,17 +2,20 @@ schema_version: 1
 agent:
   id: ac.societario
   name: Agente Societário Oficial
-  version: 0.1.0
-  lifecycle: source-capture
+  version: 0.2.0
+  lifecycle: validated
   owners:
     - Academia-de-Contadores
 catalog:
   url: https://github.com/Academia-de-Contadores/academia-contadores-agent-catalog
 source_capture:
   status: accessible
-  captured_at: 2026-08-22
+  captured_at: 2026-08-06
+  last_verified_at: 2026-09-21
+  knowledge_binary_captured_at: 2026-08-22
   source_url: https://chatgpt.com/gpts/editor/g-6a725963258081919e7c1824531b1b6d
-  record: knowledge/live-2026-08-22/MANIFEST.md
+  record: evaluations/source-capture.md
+  current_audit: evaluations/live-editor-audit-2026-09-21.md
 objectives:
   mission: objectives/mission.md
   metrics: objectives/success-metrics.md
@@ -23,10 +26,41 @@ identity:
 instructions:
   system: instructions/system.md
   guardrails: instructions/guardrails.md
-skills: []
+skills:
+  - id: ac-societario
+    entrypoint: SKILL.md
+    interface: agents/openai.yaml
+    references:
+      - references/source-policy.md
+      - references/response-modes.md
+skill_runtime:
+  name: ac-societario
+  entrypoint: SKILL.md
+  interface: agents/openai.yaml
+  source_policy: references/source-policy.md
+  response_modes: references/response-modes.md
+  knowledge:
+    - knowledge/original/00-INDICE-SOCIETARIO.md
+    - knowledge/live-2026-08-22/01-REGRAS-DE-USO-E-LIMITES.md
+    - knowledge/live-2026-08-22/02-ESCOPO-E-ROTEAMENTO.md
+    - knowledge/live-2026-08-22/03-FONTES-CANONICAS.md
+    - knowledge/live-2026-08-22/04-SKILLS-E-CENARIOS-DE-USO.md
+    - knowledge/live-2026-08-22/05-PERGUNTAS-TESTE-E-RESPOSTAS-ESPERADAS.md
+    - knowledge/live-2026-08-22/06-GUARDRAILS-E-CLAIMS-BLOQUEADOS.md
+    - knowledge/live-2026-08-22/07-MODELOS-DE-RESPOSTA-E-CHECKLISTS.md
+    - knowledge/live-2026-08-22/08-LACUNAS-E-ROADMAP.md
+    - knowledge/live-2026-08-22/99-FONTES-LACUNAS-E-CONTROLE-DE-VERSAO.md
 connectors: []
 evaluations:
   - evaluations/source-capture.md
+  - evaluations/live-editor-audit-2026-09-21.md
+  - evaluations/parity/questions.yaml
+  - evaluations/parity/install-validation-2026-09-21.md
+  - evaluations/parity/local-results-2026-09-21.md
+  - evaluations/parity/gpt-outputs-2026-09-21.md
+  - evaluations/parity/gpt-comparison-2026-09-21.md
+  - evaluations/parity/original-source-verification-2026-09-21.md
+  - evaluations/parity/release-validation-2026-09-21.md
   - evaluations/scenarios/T1.md
   - evaluations/scenarios/T2.md
   - evaluations/scenarios/T3.md
@@ -35,6 +69,7 @@ evaluations:
   - evaluations/rubrics/behavior.md
   - evaluations/security/S1.md
   - evaluations/security/S2.md
+  - evaluations/security/results/S2-forward-2026-09-21.md
   - evaluations/security/S3.md
   - evaluations/regression/H1.md
   - evaluations/regression/H2.md
