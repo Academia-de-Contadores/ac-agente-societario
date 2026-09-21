@@ -11,6 +11,10 @@ fail() {
 required=(
   README.md
   HOW-TO-USE.md
+  SKILL.md
+  agents/openai.yaml
+  references/source-policy.md
+  references/response-modes.md
   docs/REPOSITORY-STRUCTURE.md
   agent.yaml
   objectives/mission.md
@@ -30,6 +34,39 @@ required=(
 for relative_path in "${required[@]}"; do
   test -f "$root/$relative_path" || fail "missing required file: $relative_path"
 done
+
+runtime_knowledge=(
+  knowledge/original/00-INDICE-SOCIETARIO.md
+  knowledge/live-2026-08-22/01-REGRAS-DE-USO-E-LIMITES.md
+  knowledge/live-2026-08-22/02-ESCOPO-E-ROTEAMENTO.md
+  knowledge/live-2026-08-22/03-FONTES-CANONICAS.md
+  knowledge/live-2026-08-22/04-SKILLS-E-CENARIOS-DE-USO.md
+  knowledge/live-2026-08-22/05-PERGUNTAS-TESTE-E-RESPOSTAS-ESPERADAS.md
+  knowledge/live-2026-08-22/06-GUARDRAILS-E-CLAIMS-BLOQUEADOS.md
+  knowledge/live-2026-08-22/07-MODELOS-DE-RESPOSTA-E-CHECKLISTS.md
+  knowledge/live-2026-08-22/08-LACUNAS-E-ROADMAP.md
+  knowledge/live-2026-08-22/99-FONTES-LACUNAS-E-CONTROLE-DE-VERSAO.md
+)
+
+for relative_path in "${runtime_knowledge[@]}"; do
+  test -f "$root/$relative_path" || \
+    fail "missing runtime Knowledge file: $relative_path"
+  grep -Fqx "    - $relative_path" "$root/agent.yaml" || \
+    fail "runtime Knowledge file is not declared: $relative_path"
+done
+
+runtime_knowledge_count="$(awk '
+  /^  knowledge:[[:space:]]*$/ { in_runtime_knowledge = 1; next }
+  in_runtime_knowledge && /^  [^[:space:]][^:]*:/ { exit }
+  in_runtime_knowledge && /^    -[[:space:]]+/ { count++ }
+  END { print count + 0 }
+' "$root/agent.yaml")"
+test "$runtime_knowledge_count" = "10" || \
+  fail "skill_runtime.knowledge must contain exactly ten canonical files"
+
+if grep -Eq '^    - knowledge/original/(0[1-9]|[1-9][0-9])-' "$root/agent.yaml"; then
+  fail "skill runtime must not include the contaminated 2026-08-07 originals"
+fi
 
 required_structure_sections=(
   "Manifesto agent.yaml"

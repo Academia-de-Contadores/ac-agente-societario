@@ -9,6 +9,9 @@ controlada dele.
 ```text
 .
 ├── agent.yaml
+├── SKILL.md                    # entrypoint distribuível $ac-societario
+├── agents/openai.yaml          # interface e política de invocação
+├── references/                 # política de fontes e modos da skill
 ├── objectives/                 # missão, métricas e não-objetivos
 ├── identity/                   # papel, autoridade, voz e valores
 ├── instructions/               # prompt, guardrails e workflows permanentes
@@ -106,10 +109,15 @@ use-a somente com manifesto de tipo, alvo, finalidade e dependência.
 
 ## Skills
 
-- **O que é:** `skills/` reúne procedimentos reutilizáveis e acionáveis.
-- **Entra:** `skills/<nome>/SKILL.md` e `skills/<nome>/evaluations/`.
+- **O que é:** `SKILL.md` na raiz é o entrypoint distribuível de
+  `$ac-societario`; `agents/openai.yaml` contém a interface e `references/` os
+  detalhes condicionais. `skills/` fica reservado a procedimentos internos
+  adicionais que venham a ser separados no futuro.
+- **Entra:** o entrypoint raiz, seus metadados/referências e, quando necessário,
+  `skills/<nome>/SKILL.md` com procedimento distinto.
 - **Não entra:** regra de toda resposta, dado bruto ou credencial.
-- **Exemplo:** `skills/example-skill/SKILL.md` para estruturar briefing.
+- **Exemplo:** `SKILL.md` roteia abertura, alteração, baixa, viabilidade, minuta
+  e comunicação sem carregar todas as referências de uma vez.
 - **Avaliação ou revisão:** cada mudança requer cenário direcionado e regressão aplicável.
 
 ## Knowledge
@@ -117,7 +125,9 @@ use-a somente com manifesto de tipo, alvo, finalidade e dependência.
 - **O que é:** `knowledge/` é a base curada que pode ser fornecida ao modelo.
 - **Entra:** `.md`, `.txt`, `.pdf`, `.csv`, JSON de referência, imagens, planilhas e manifesto de fonte/data/licença/hash.
 - **Não entra:** manual de manutenção, segredo, dado de cliente, conversa, log, corpus ou índice vetorial.
-- **Exemplo:** PDF de legislação com manifesto de proveniência.
+- **Exemplo:** o runtime de `$ac-societario` usa somente os nove `.md` de
+  `knowledge/live-2026-08-22/` e `knowledge/original/00-INDICE-SOCIETARIO.md`,
+  declarados em `agent.yaml`; os outros originais são históricos e não entram.
 - **Avaliação ou revisão:** avalie respostas e segurança; revise licença, classe de dados e tamanho.
 
 ## Connectors

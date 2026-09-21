@@ -2,8 +2,8 @@ schema_version: 1
 agent:
   id: ac.societario
   name: Agente Societário Oficial
-  version: 0.1.0
-  lifecycle: source-capture
+  version: 0.2.0
+  lifecycle: candidate
   owners:
     - Academia-de-Contadores
 catalog:
@@ -26,11 +26,35 @@ identity:
 instructions:
   system: instructions/system.md
   guardrails: instructions/guardrails.md
-skills: []
+skills:
+  - id: ac-societario
+    entrypoint: SKILL.md
+    interface: agents/openai.yaml
+    references:
+      - references/source-policy.md
+      - references/response-modes.md
+skill_runtime:
+  name: ac-societario
+  entrypoint: SKILL.md
+  interface: agents/openai.yaml
+  source_policy: references/source-policy.md
+  response_modes: references/response-modes.md
+  knowledge:
+    - knowledge/original/00-INDICE-SOCIETARIO.md
+    - knowledge/live-2026-08-22/01-REGRAS-DE-USO-E-LIMITES.md
+    - knowledge/live-2026-08-22/02-ESCOPO-E-ROTEAMENTO.md
+    - knowledge/live-2026-08-22/03-FONTES-CANONICAS.md
+    - knowledge/live-2026-08-22/04-SKILLS-E-CENARIOS-DE-USO.md
+    - knowledge/live-2026-08-22/05-PERGUNTAS-TESTE-E-RESPOSTAS-ESPERADAS.md
+    - knowledge/live-2026-08-22/06-GUARDRAILS-E-CLAIMS-BLOQUEADOS.md
+    - knowledge/live-2026-08-22/07-MODELOS-DE-RESPOSTA-E-CHECKLISTS.md
+    - knowledge/live-2026-08-22/08-LACUNAS-E-ROADMAP.md
+    - knowledge/live-2026-08-22/99-FONTES-LACUNAS-E-CONTROLE-DE-VERSAO.md
 connectors: []
 evaluations:
   - evaluations/source-capture.md
   - evaluations/live-editor-audit-2026-09-21.md
+  - evaluations/parity/questions.yaml
   - evaluations/scenarios/T1.md
   - evaluations/scenarios/T2.md
   - evaluations/scenarios/T3.md
