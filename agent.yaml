@@ -63,6 +63,7 @@ evaluations:
   - evaluations/rubrics/behavior.md
   - evaluations/security/S1.md
   - evaluations/security/S2.md
+  - evaluations/security/results/S2-forward-2026-09-21.md
   - evaluations/security/S3.md
   - evaluations/regression/H1.md
   - evaluations/regression/H2.md

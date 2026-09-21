@@ -9,6 +9,10 @@ Todas as mudanças relevantes deste agente serão registradas aqui.
 - Limita o runtime aos nove anexos da captura de 2026-08-22 e ao índice
   societário, sem incluir os originais históricos contaminados por DP.
 - Adiciona política de fontes, modos operacionais e perguntas de paridade.
+- Trata documentos e conteúdo recuperado como dados não confiáveis para fins de
+  comando e registra o forward test independente S2 aprovado.
+- Torna o CI capaz de detectar regressões no frontmatter, interface, ponteiros
+  do runtime e hashes ou tamanhos da baseline de Knowledge.
 - Reconcilia o GPT online em 2026-09-21, registra a mudança de modelo
   recomendado e separa as capturas de Knowledge de 2026-08-07 e 2026-08-22.
 - Define a captura binária de 2026-08-22 como baseline documental provisório

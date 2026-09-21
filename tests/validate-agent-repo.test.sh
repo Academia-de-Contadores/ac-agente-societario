@@ -11,8 +11,10 @@ for f in README.md HOW-TO-USE.md docs/REPOSITORY-STRUCTURE.md agent.yaml objecti
   governance/RELEASE-POLICY.md governance/DATA-AND-SECRETS.md \
   governance/RISK-REGISTER.md \
   SKILL.md agents/openai.yaml references/source-policy.md references/response-modes.md \
+  evaluations/security/results/S2-forward-2026-09-21.md \
+  decisions/2026-09-21-untrusted-content-boundary.md \
   .github/CODEOWNERS .github/PULL_REQUEST_TEMPLATE.md .github/workflows/validate.yml \
-  scripts/validate-agent-repo.sh; do
+  scripts/validate-agent-repo.sh scripts/validate-societario-skill.rb; do
   test -f "$root/$f"
 done
 
@@ -81,6 +83,59 @@ cp "$fixture/SKILL.md" "$fixture/SKILL.md.valid"
 rm "$fixture/SKILL.md"
 expect_rejected "a distributable package without SKILL.md"
 mv "$fixture/SKILL.md.valid" "$fixture/SKILL.md"
+
+cp "$fixture/SKILL.md" "$fixture/SKILL.md.valid"
+sed '2s/: /: [/' "$fixture/SKILL.md.valid" > "$fixture/SKILL.md"
+expect_rejected "invalid SKILL.md frontmatter"
+mv "$fixture/SKILL.md.valid" "$fixture/SKILL.md"
+
+cp "$fixture/agents/openai.yaml" "$fixture/openai.yaml.valid"
+sed "s/\\\$ac-societario/\\\$outra-skill/" "$fixture/openai.yaml.valid" > \
+  "$fixture/agents/openai.yaml"
+expect_rejected "an agents/openai.yaml default_prompt for another skill"
+mv "$fixture/openai.yaml.valid" "$fixture/agents/openai.yaml"
+
+cp "$fixture/agents/openai.yaml" "$fixture/openai.yaml.valid"
+sed '1s/:/: [/' "$fixture/openai.yaml.valid" > "$fixture/agents/openai.yaml"
+expect_rejected "invalid agents/openai.yaml YAML"
+mv "$fixture/openai.yaml.valid" "$fixture/agents/openai.yaml"
+
+cp "$fixture/agent.yaml" "$fixture/agent.yaml.valid"
+awk '
+  /^skill_runtime:/ { in_runtime = 1 }
+  in_runtime && /^  entrypoint:/ {
+    print "  entrypoint: WRONG.md"
+    in_runtime = 0
+    next
+  }
+  { print }
+' "$fixture/agent.yaml.valid" > "$fixture/agent.yaml"
+expect_rejected "an incorrect skill_runtime entrypoint"
+mv "$fixture/agent.yaml.valid" "$fixture/agent.yaml"
+
+cp "$fixture/agent.yaml" "$fixture/agent.yaml.valid"
+awk '
+  /^skill_runtime:/ { in_runtime = 1 }
+  in_runtime && /^  interface:/ {
+    print "  interface: agents/wrong.yaml"
+    in_runtime = 0
+    next
+  }
+  { print }
+' "$fixture/agent.yaml.valid" > "$fixture/agent.yaml"
+expect_rejected "an incorrect skill_runtime interface"
+mv "$fixture/agent.yaml.valid" "$fixture/agent.yaml"
+
+knowledge_fixture="knowledge/live-2026-08-22/01-REGRAS-DE-USO-E-LIMITES.md"
+cp "$fixture/$knowledge_fixture" "$fixture/knowledge.valid"
+perl -0pi -e 's/a/b/' "$fixture/$knowledge_fixture"
+expect_rejected "same-size Knowledge hash drift"
+mv "$fixture/knowledge.valid" "$fixture/$knowledge_fixture"
+
+cp "$fixture/$knowledge_fixture" "$fixture/knowledge.valid"
+printf x >> "$fixture/$knowledge_fixture"
+expect_rejected "Knowledge size drift"
+mv "$fixture/knowledge.valid" "$fixture/$knowledge_fixture"
 
 cp "$fixture/agent.yaml" "$fixture/agent.yaml.valid"
 sed '/knowledge\/live-2026-08-22\/99-FONTES-LACUNAS-E-CONTROLE-DE-VERSAO.md/d' \

@@ -15,6 +15,8 @@ required=(
   agents/openai.yaml
   references/source-policy.md
   references/response-modes.md
+  evaluations/security/results/S2-forward-2026-09-21.md
+  decisions/2026-09-21-untrusted-content-boundary.md
   docs/REPOSITORY-STRUCTURE.md
   agent.yaml
   objectives/mission.md
@@ -29,6 +31,7 @@ required=(
   governance/RELEASE-POLICY.md
   governance/DATA-AND-SECRETS.md
   governance/RISK-REGISTER.md
+  scripts/validate-societario-skill.rb
 )
 
 for relative_path in "${required[@]}"; do
@@ -265,5 +268,7 @@ validate_versioned_components() {
 
 validate_versioned_components profiles profile.yaml
 validate_versioned_components adapters adapter.yaml
+
+ruby "$root/scripts/validate-societario-skill.rb"
 
 echo "agent repository validation passed"
