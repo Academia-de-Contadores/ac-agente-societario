@@ -1,10 +1,25 @@
-# Manifesto do Knowledge original do GPT
+# Manifesto consolidado do Knowledge do GPT
+
+## Estado online reconfirmado em 2026-09-21
+
+- O editor exibe os mesmos dez nomes listados na captura de 2026-08-07.
+- A interface não forneceu um novo binário durante a auditoria; nomes e
+  quantidade estão confirmados, mas os hashes online atuais não.
+- A última captura binária comprovada do conjunto ativo é de 2026-08-22:
+  nove arquivos em `live-2026-08-22/` e o índice
+  `original/00-INDICE-SOCIETARIO.md`.
+- Consulte [a auditoria corrente](../evaluations/live-editor-audit-2026-09-21.md)
+  e [o manifesto da captura de 2026-08-22](live-2026-08-22/MANIFEST.md).
+
+## Captura original — 2026-08-07
 
 - **GPT:** `ac.societario`
 - **Editor:** https://chatgpt.com/gpts/editor/g-6a725963258081919e7c1824531b1b6d
 - **Captura integral:** 2026-08-07
 - **Arquivos preservados:** 10/10
 - **Método:** download direto de cada anexo no editor autenticado do GPT Builder.
+- **Integridade local reconfirmada:** 2026-09-21; bytes e SHA-256 continuam
+  iguais aos valores abaixo.
 
 | Arquivo preservado | SHA-256 | Bytes |
 | --- | --- | ---: |
@@ -19,4 +34,21 @@
 | `original/02-ESCOPO-E-ROTEAMENTO.md` | `50e4f5c43ff8471e27e341ada3c112685c98da3b761d598482655fc217f4a6b7` | 3342 |
 | `original/05-PERGUNTAS-TESTE-E-RESPOSTAS-ESPERADAS.md` | `a2b4cf8964be07b0d88dd6d415a122fb3fbca6bf80fb946947e67be454718fa3` | 2064 |
 
-Os arquivos foram copiados byte a byte com o mesmo nome exibido no GPT. Os hashes acima são a referência canônica para restauração e auditoria.
+Os arquivos foram copiados byte a byte com o mesmo nome exibido no GPT. Os
+hashes acima são a referência da captura histórica de 2026-08-07, não uma prova
+do estado binário online atual.
+
+## Separação entre as duas gerações preservadas
+
+| Geração | Conteúdo | Estado de evidência | Uso na futura skill |
+| --- | --- | --- | --- |
+| `original/` | dez arquivos baixados em 2026-08-07 | íntegro localmente; vários arquivos trazem títulos ou origem de DP | histórico e auditoria; não usar como baseline operacional sem revisão |
+| `live-2026-08-22/` + `original/00-INDICE-SOCIETARIO.md` | dez arquivos ativos baixados em 2026-08-22 | última captura binária comprovada; nove hashes mudaram | baseline documental provisório para construir a skill |
+| Knowledge online em 2026-09-21 | dez nomes visualmente iguais | bytes e hashes atuais não obtidos | baseline comportamental; paridade binária permanece `GAP` |
+
+As versões de 2026-08-22 identificam-se como curadoria interna
+(`fonte_tipo: curadoria`, `origem: agents/knowledge`) e citam caminhos de um
+corpus societário anterior, inclusive manifesto, síntese, parecer e IDs
+`CE-PROC-SOC-*`. Esses arquivos-fonte não estão neste repositório; portanto,
+essas referências registram proveniência declarada, mas não constituem
+verificação independente dos originais primários.
