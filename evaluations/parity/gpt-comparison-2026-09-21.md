@@ -28,5 +28,8 @@ Depois das seis execuções, nome, descrição, starter e campo de instruções
 (4.272 caracteres; 134 linhas) permaneciam iguais à auditoria; o editor seguia
 em `Rascunho`, com `Criar` não acionado e nenhuma Action configurada. Resultado
 da comparação: **0 Critical / 0 Important / 0 Minor observados nesta task**.
-Com a revisão final independente concluída sem achados, a release `0.2.0` tem
-lifecycle `validated`.
+Esse resultado pertence à revisão comportamental pós-fix. A auditoria final
+inicial da release encontrou depois uma inconsistência no hash documentado do
+inventário; ela foi corrigida sem alterar comportamento ou conteúdo instalado.
+Este relatório não registra nem antecipa o resultado da re-review final. A
+release `0.2.0` permanece com lifecycle `validated`.

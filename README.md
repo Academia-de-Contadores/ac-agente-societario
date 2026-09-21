@@ -36,8 +36,10 @@ paridade binária com o online atual.
 A release `0.2.0` passou nos seis casos locais e nos seis casos do GPT online.
 Na rubrica de 12 pontos, P1, P2, P3, P5 e P6 obtiveram 12/12 e P4 obteve
 11/12. A instalação seletiva mantém 22 arquivos regulares, dez arquivos de
-Knowledge e nenhum symlink ou `.gitkeep`. A revisão final registrou zero achados
-Critical, Important ou Minor. O relatório durável está em
+Knowledge e nenhum symlink ou `.gitkeep`. A revisão comportamental pós-fix
+registrou zero achados Critical, Important ou Minor. A auditoria final inicial
+da release encontrou um hash de inventário inconsistente; ele foi corrigido sem
+antecipar o resultado da re-review final. O relatório durável está em
 `evaluations/parity/release-validation-2026-09-21.md`.
 
 ## Invocação

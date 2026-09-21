@@ -15,13 +15,19 @@ limites de evidência, conclusão ou aprovação humana.
 | Rubrica P4 | 11/12; PASS, com handoff menos formal sem falha bloqueante |
 | Instalação seletiva | 22 arquivos regulares / 10 Knowledge / 0 symlinks / 0 `.gitkeep` |
 | Igualdade origem × instalação | PASS 22/22 por caminho e bytes |
-| Revisão final independente | 0 Critical / 0 Important / 0 Minor |
+| Revisão comportamental pós-fix | 0 Critical / 0 Important / 0 Minor |
+| Auditoria final inicial da release | identificou hash inconsistente; corrigido, com re-review final ainda não registrada neste relatório |
 
 O inventário instalado em `/Users/levy/.codex/skills/ac-societario` tem
 SHA-256 reproduzível
-`b481886fdb5efa8180f4a45156128e31e4c5561688950832c139291f7b0349b1`.
+`32b8a83a38475236ad1a415b9eb1e9e6a50caa815976d6d688e454f637eddbb1`.
 O cálculo usa a lista ordenada de hashes e caminhos relativos descrita em
 `install-validation-2026-09-21.md`.
+
+A auditoria final inicial mostrou que o hash anterior não correspondia ao
+resultado do comando documentado. O valor acima foi reproduzido diretamente na
+instalação e em um pacote temporário reconstruído com a allowlist de 22 arquivos.
+O reparo está registrado sem antecipar o resultado da re-review final.
 
 ## Evidências
 

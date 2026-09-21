@@ -37,6 +37,12 @@ destino. Os dois `quick_validate.py`, o validador específico, o validador do
 repositório, a suíte de testes, a igualdade byte a byte 22/22 e
 `git diff --check` passaram. O inventário final instalado permaneceu com 22
 arquivos e passou a ter SHA-256
-`b481886fdb5efa8180f4a45156128e31e4c5561688950832c139291f7b0349b1`.
+`32b8a83a38475236ad1a415b9eb1e9e6a50caa815976d6d688e454f637eddbb1`.
 Os dez arquivos de Knowledge continuam presentes; symlinks e `.gitkeep`
 continuam em zero.
+
+A auditoria final inicial da release identificou que o hash anteriormente
+registrado não era reproduzido pelo comando documentado. O valor acima foi
+recalculado tanto na instalação quanto em um pacote temporário reconstruído com
+a mesma allowlist; ambos produziram exatamente o mesmo SHA-256. Esta correção
+não registra nem antecipa o resultado da re-review final da release.

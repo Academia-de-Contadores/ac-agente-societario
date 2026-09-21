@@ -35,9 +35,12 @@ Valide o destino com `quick_validate.py` da skill `skill-creator` e confira que
 o pacote contém exatamente os dez arquivos de Knowledge declarados. A instalação
 e o forward test independentes estão registrados em `evaluations/parity/`. A
 release `0.2.0` tem lifecycle `validated`: passou em 6/6 casos locais, 6/6 casos
-online, instalação byte a byte e revisão final sem achados. Instale a partir de
-`main` em um commit que contenha esta release ou de uma tag `v0.2.0` que resolva
-para o mesmo conteúdo; não use branches transitórias como origem operacional.
+online e instalação byte a byte; a revisão comportamental pós-fix registrou zero
+achados Critical, Important ou Minor. A auditoria final inicial da release
+encontrou e corrigiu um hash de inventário inconsistente, sem antecipar o
+resultado da re-review final. Instale a partir de `main` em um commit que
+contenha esta release ou de uma tag `v0.2.0` que resolva para o mesmo conteúdo;
+não use branches transitórias como origem operacional.
 
 ## Uso real
 
