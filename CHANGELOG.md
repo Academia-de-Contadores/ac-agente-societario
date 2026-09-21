@@ -13,6 +13,9 @@ Todas as mudanças relevantes deste agente serão registradas aqui.
   comando e registra o forward test independente S2 aprovado.
 - Torna o CI capaz de detectar regressões no frontmatter, interface, ponteiros
   do runtime e hashes ou tamanhos da baseline de Knowledge.
+- Instala seletivamente a skill, registra forward test local e comparação real
+  com o preview em seis casos, todos aprovados, mantendo explícito o gap dos
+  materiais primários citados pelo Knowledge.
 - Reconcilia o GPT online em 2026-09-21, registra a mudança de modelo
   recomendado e separa as capturas de Knowledge de 2026-08-07 e 2026-08-22.
 - Define a captura binária de 2026-08-22 como baseline documental provisório

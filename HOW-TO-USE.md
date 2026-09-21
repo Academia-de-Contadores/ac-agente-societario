@@ -32,9 +32,10 @@ Não copie os arquivos `01` a `99` de `knowledge/original/`,
 `cp -R knowledge`: isso incluiria a geração histórica errada.
 
 Valide o destino com `quick_validate.py` da skill `skill-creator` e confira que
-o pacote contém exatamente os dez arquivos de Knowledge declarados. Esta versão
-é `candidate`; instalação e forward test independentes ainda são necessários
-antes de promover o lifecycle para `validated`.
+o pacote contém exatamente os dez arquivos de Knowledge declarados. A instalação
+e o forward test independentes estão registrados em `evaluations/parity/`. Esta
+versão permanece `candidate` até a revisão final que autorizar a promoção do
+lifecycle para `validated`.
 
 ## Uso real
 

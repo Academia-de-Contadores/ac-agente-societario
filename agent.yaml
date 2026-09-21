@@ -55,6 +55,11 @@ evaluations:
   - evaluations/source-capture.md
   - evaluations/live-editor-audit-2026-09-21.md
   - evaluations/parity/questions.yaml
+  - evaluations/parity/install-validation-2026-09-21.md
+  - evaluations/parity/local-results-2026-09-21.md
+  - evaluations/parity/gpt-outputs-2026-09-21.md
+  - evaluations/parity/gpt-comparison-2026-09-21.md
+  - evaluations/parity/original-source-verification-2026-09-21.md
   - evaluations/scenarios/T1.md
   - evaluations/scenarios/T2.md
   - evaluations/scenarios/T3.md
