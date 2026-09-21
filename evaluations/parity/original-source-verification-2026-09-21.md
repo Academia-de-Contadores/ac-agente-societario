@@ -35,4 +35,3 @@ Resultado: **PASS para integridade e suporte comportamental; GAP explícito para
 origens primárias e paridade binária online atual**. O gap não bloqueia o runtime
 operacional porque a skill exige validação oficial antes de qualquer conclusão
 local, documento final, prazo ou protocolo.
-

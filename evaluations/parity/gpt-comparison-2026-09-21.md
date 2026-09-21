@@ -29,4 +29,3 @@ Depois das seis execuções, nome, descrição, starter e campo de instruções
 em `Rascunho`, com `Criar` não acionado e nenhuma Action configurada. Resultado
 da comparação: **0 Critical / 0 Important / 0 Minor observados nesta task**.
 Lifecycle permanece `candidate` até revisão final independente.
-

@@ -571,4 +571,3 @@ evidência de inspeção somente leitura; nenhum salvamento/publicação foi fei
 - `https://www.juntacomercial.pr.gov.br/Pagina/Consulta-Previa-de-Viabilidade?utm_source=chatgpt.com`
 - `https://www.juntacomercial.pr.gov.br/Pagina/Passo-passo-Sociedade-Empresaria-Limitada-Abertura?utm_source=chatgpt.com`
 - `https://www.juntacomercial.pr.gov.br/?utm_source=chatgpt.com`
-
